@@ -3,13 +3,13 @@ package org.personal.base.dao.impl;
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
-import org.personal.base.dao.BaseDao;
+import org.personal.base.dao.CommDao;
 import org.personal.base.model.BaseModel;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BaseDaoImpl extends HibernateDaoSupport implements BaseDao{
+public class CommDaoImpl extends HibernateDaoSupport implements CommDao{
 	
 	@Resource(name="sessionFactory")
 	public void setSuperSessionFactory(SessionFactory sessionFactory) {

@@ -1,4 +1,4 @@
-package org.personal.model;
+package org.personal.model.product;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

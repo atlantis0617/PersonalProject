@@ -1,7 +1,7 @@
 package org.personal.action;
 
-import org.personal.model.Product;
-import org.personal.service.product.ProductService;
+import org.personal.model.product.Product;
+import org.personal.service.product.ProductManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ public class ProductAction extends ActionSupport{
 	private static final long serialVersionUID = -5340942082278906806L;
 	
 	@Autowired
-    private ProductService productService;
+    private ProductManager productService;
 	
 	private String pname;
     private double price;

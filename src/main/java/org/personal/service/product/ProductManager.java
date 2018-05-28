@@ -1,10 +1,9 @@
-package org.personal.dao;
+package org.personal.service.product;
 
-import org.personal.base.dao.BaseDao;
-import org.personal.model.Product;
+import org.personal.model.product.Product;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface ProductDao extends BaseDao{
+public interface ProductManager {
 	
 	@Transactional(readOnly=false)
 	void saveProduct(Product product);

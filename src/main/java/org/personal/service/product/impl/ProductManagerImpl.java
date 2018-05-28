@@ -1,21 +1,21 @@
 package org.personal.service.product.impl;
 
-import org.personal.dao.ProductDao;
-import org.personal.model.Product;
-import org.personal.service.product.ProductService;
+import org.personal.base.dao.CommDao;
+import org.personal.model.product.Product;
+import org.personal.service.product.ProductManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductServiceImpl  implements ProductService{
+public class ProductManagerImpl  implements ProductManager{
 	
 	@Autowired
-    private ProductDao productDao;
+    private CommDao commonDao;
 
 	@Override
 	public void saveProduct(Product product) {
 		
-		productDao.saveProduct(product);
+		commonDao.save(product);
 		
 	}
 
