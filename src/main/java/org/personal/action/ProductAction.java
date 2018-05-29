@@ -15,7 +15,7 @@ public class ProductAction extends ActionSupport{
 	private static final long serialVersionUID = -5340942082278906806L;
 	
 	@Autowired
-    private ProductManager productService;
+    private ProductManager productManager;
 	
 	private String pname;
     private double price;
@@ -28,7 +28,7 @@ public class ProductAction extends ActionSupport{
     public String saveProduct() {
          
         Product product = new Product(pname, price);
-        productService.saveProduct(product);
+        productManager.saveProduct(product);
          
         this.addActionMessage("保存成功...");
         return SUCCESS;
