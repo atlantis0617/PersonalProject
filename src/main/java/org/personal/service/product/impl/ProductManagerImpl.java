@@ -1,5 +1,7 @@
 package org.personal.service.product.impl;
 
+import java.util.List;
+
 import org.personal.base.dao.CommDao;
 import org.personal.model.product.Product;
 import org.personal.service.product.ProductManager;
@@ -17,6 +19,21 @@ public class ProductManagerImpl  implements ProductManager{
 		
 		commonDao.save(product);
 		
+	}
+
+
+	@Override
+	public void delProduct() {
+		
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> showProduct() {
+		String hql = "FROM Product WHERE 1=1";
+		List<Product> pros = commonDao.findByQuery(hql);		
+		return pros;
 	}
 
 }

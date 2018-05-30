@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 商品相关请求转发 -->
+	<package name="product" extends="struts-default" namespace="/view/product" strict-method-invocation="false">
+		<!-- 保存商品 -->
+        <action name="product_*" class="org.personal.action.ProductAction" method="{1}Product">
+            <result name="input">/view/product/addProduct.jsp</result>
+             <result name="error">/500.jsp</result>
+             <result name="success">/view/product/addProduct.jsp</result>
+        </action>
+	</package>
+	
+	<!-- 引入资源文件 -->
+    <constant name="struts.custom.i18n.resources" value="messageResource"></constant>
+    
+</struts>

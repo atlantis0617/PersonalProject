@@ -1,5 +1,7 @@
 package org.personal.action;
 
+import java.util.List;
+
 import org.personal.model.product.Product;
 import org.personal.service.product.ProductManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,45 +19,55 @@ public class ProductAction extends ActionSupport{
 	@Autowired
     private ProductManager productManager;
 	
-	private String pname;
-    private double price;
+	private Product product;
     
-    /**
-     * 保存商品操作
-     *
-     * @return
-     */
+    /** 
+    * @Title: saveProduct 
+    * @Description: 保存商品
+    * @param @return    设定文件 
+    * @return String    返回类型 
+    * @throws 
+    */
     public String saveProduct() {
          
-        Product product = new Product(pname, price);
         productManager.saveProduct(product);
          
         this.addActionMessage("保存成功...");
+        
         return SUCCESS;
          
     }
-
-	public String getPname() {
-		return pname;
-	}
-
-	public void setPname(String pname) {
-		this.pname = pname;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
     
-    @Override
-    public void validate() {
-    	 if(pname == null || "".equals(pname.trim())) {
-             this.addFieldError("pname", "商品名称不能为空");
-         }
+    public String showProduct() {
+    	List<Product> datas = productManager.showProduct();
+    	if(datas.size()>0) {
+    		for (Product product : datas) {
+				System.out.println(product.getPname());
+			}
+    	}
+    	return SUCCESS;
+    };
+    
+    
+    /** 
+    * @Title: delProduct 
+    * @Description: 删除商品
+    * @param @return    设定文件 
+    * @return String    返回类型 
+    * @throws 
+    */
+    public String delProduct() {
+    	
+    	return SUCCESS;
+    
     }
+    
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 }
