@@ -1,7 +1,9 @@
 package org.personal.action;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.RequestAware;
 import org.personal.model.product.Product;
 import org.personal.service.product.ProductManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
 @Scope("prototype")
-public class ProductAction extends ActionSupport{
+public class ProductAction extends ActionSupport implements RequestAware{
 
 	private static final long serialVersionUID = -5340942082278906806L;
 	
@@ -20,6 +22,8 @@ public class ProductAction extends ActionSupport{
     private ProductManager productManager;
 	
 	private Product product;
+	
+	private Map<String, Object> request; 
     
     /** 
     * @Title: saveProduct 
@@ -29,23 +33,18 @@ public class ProductAction extends ActionSupport{
     * @throws 
     */
     public String saveProduct() {
-         
         productManager.saveProduct(product);
-         
         this.addActionMessage("保存成功...");
-        
-        return SUCCESS;
-         
+        return "add";
     }
     
     public String showProduct() {
+//    	HttpServletRequest request = ServletActionContext.getRequest();
     	List<Product> datas = productManager.showProduct();
     	if(datas.size()>0) {
-    		for (Product product : datas) {
-				System.out.println(product.getPname());
-			}
+    		request.put("pros", datas);
     	}
-    	return SUCCESS;
+    	return "show";
     };
     
     
@@ -68,6 +67,11 @@ public class ProductAction extends ActionSupport{
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	@Override
+	public void setRequest(Map<String, Object> request) {
+		this.request = request;
 	}
 
 }

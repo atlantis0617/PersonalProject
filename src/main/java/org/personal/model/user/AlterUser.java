@@ -7,7 +7,6 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,7 +16,6 @@ import org.personal.base.model.BaseStatus;
 import org.personal.base.model.UpdateInfo;
 
 @Entity
-@Table(name="ALTER_USER")
 public class AlterUser extends BaseModel{
 
 	private static final long serialVersionUID = 2808850675851979205L;

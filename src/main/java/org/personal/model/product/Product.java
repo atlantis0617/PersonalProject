@@ -13,25 +13,17 @@ public class Product extends BaseModel{
 	
 	private static final long serialVersionUID = -2686927131251401171L;
 	
-	
 	@Id
     @GeneratedValue(generator = "pid")
     @GenericGenerator(name = "pid", strategy = "native")
     private int pid;// 商品ID
-    @Column(length = 100)
+    
+	@Column(length = 100)
     private String pname;// 商品名称
-    private double price;// 商品价格
     
-    
-	public Product() {
-		
-	}
+	@Column
+	private double price;// 商品价格
 	
-	public Product(String pname, double price) {
-		this.pname = pname;
-		this.price = price;
-	}
-
 	public int getPid() {
 		return pid;
 	}

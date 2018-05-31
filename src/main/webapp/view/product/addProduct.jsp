@@ -10,15 +10,19 @@
 <body>
 	<h1>新增商品</h1>
 	<s:actionmessage />
-	<s:form action="product_add" method="post" namespace="/view/product" theme="simple">
+	<s:form action="product_save" method="post" namespace="/view/product" theme="simple">
 		<table style="width: 600px;">
 			<tr>
 				<th>商品名称</th>
-				<td><s:textfield name="product.pname" /></td>
+				<td><s:textfield name="product.pname" /><br/>
+					   <s:fielderror fieldName="product.pname"/>
+				</td>
 			</tr>
 			<tr>
 				<th>商品价格</th>
-				<td><s:textfield name="product.price" /></td>
+				<td><s:textfield name="product.price" /><br/>
+					   <s:fielderror fieldName="product.price"/>
+				</td>
 			</tr>
 			<tr>
 				<th colspan="2"><input type="submit" value="保存" /></th>
