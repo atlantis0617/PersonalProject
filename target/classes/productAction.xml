@@ -8,7 +8,7 @@
 		<!-- 保存商品 -->
         <action name="product_*" class="org.personal.action.ProductAction" method="{1}Product">
              <result name="input">/view/product/addProduct.jsp</result>
-             <result name="error">/500.jsp</result>
+             <result name="error">/404.jsp</result>
              <result name="show">/view/product/showProduct.jsp</result>
              <result name="add">/view/product/addProduct.jsp</result>
         </action>
